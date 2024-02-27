@@ -19,7 +19,7 @@ public class Connexion {
         String setScanner = this.scanner.nextLine();
 
         Class.forName("org.postgresql.Driver");
-        Connection con=DriverManager.getConnection("jdbc:postgresql://localhost:5432/"+setScanner,"postgres","");
+        Connection con=DriverManager.getConnection("jdbc:postgresql://localhost:5432/"+setScanner,"postgres","IliveT51");
 
         this.scanner.close();
         return con;
