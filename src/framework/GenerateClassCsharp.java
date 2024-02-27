@@ -29,7 +29,18 @@ public class GenerateClassCsharp {
 
             ResultSet columns = metaData.getColumns(null, null, tableName, "%");
 
+            // Obtenir le chemin du répertoire du projet
+            String projectDirectory = System.getProperty("user.dir");
+            String relativePath = "src.com.cs";
+
+            // Convertir le chemin relatif en nom de package
+            String packageName = relativePath.replace(File.separator, ".");
+
+            // Ajout du package et des importations
+//            String packageName = "com.example"; // Exemple de nom de package
             StringBuilder classContent = new StringBuilder();
+            classContent.append("using System;\n");
+            classContent.append("namespace ").append(packageName).append(" {\n");
 
             classContent.append("public class ").append(Fonction_Sup.tableNameToClassName(tableName)).append(" {\n");
             classContent.append(" {\n");
