@@ -3,11 +3,7 @@ package Bdd;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Connexion {
     PreparedStatement s;
@@ -19,7 +15,6 @@ public class Connexion {
         String setScanner = this.scanner.nextLine();
 
         Class.forName("org.postgresql.Driver");
-        Connection con=DriverManager.getConnection("jdbc:postgresql://localhost:5432/"+setScanner,"postgres","");
 
         this.scanner.close();
         return con;

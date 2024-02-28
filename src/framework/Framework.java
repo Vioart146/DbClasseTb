@@ -9,8 +9,8 @@ import Bdd.Connexion;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
-import static framework.GenerateClass.generateClass;
-import static framework.GenerateClassCsharp.generateClassCsharp;
+import static framework.GenerateModelJava.generateClass;
+import static framework.GenerateModelCsharp.generateClassCsharp;
 import java.util.Scanner;
 
 /**
