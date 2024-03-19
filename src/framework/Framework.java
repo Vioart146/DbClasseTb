@@ -1,56 +1,58 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package framework;
 
-import Bdd.Connexion;
+import bdd.Connexion;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
-import static framework.GenerateModelJava.generateClass;
-import static framework.GenerateModelCsharp.generateClassCsharp;
 import java.util.Scanner;
-
 /**
  *
- * @author etech
+ * @author Vioart Vidoc
  */
+
 public class Framework {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) throws Exception {
-        // TODO code application logic here
-///ato tonga de mijery ny emplacement an le projet
-        String userDirectory = System.getProperty("user.dir");
-//        System.out.println("Emplacement du projet : " + userDirectory);
-//-----------------------------------------------------------------------------
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Le nom du package Java : ");
-        String setScanner = scanner.nextLine();
+        System.out.print("L'emplacement du projet : ");
+        String projectDirectory = scanner.nextLine();
 
-        System.out.print("Le nom du package C# : ");
-        String setCScanner = scanner.nextLine();
-        
-        Connection co = null;
-        co = new Connexion().getConnection();
+        System.out.print("Le nom de la base de données : ");
+        String databaseName = scanner.nextLine();
+
+        // Chemin du modèle de projet source
+        String currentDirectory = System.getProperty("user.dir");
+        String templatePath = currentDirectory + "/template/csmvc";
+//        String sourcePath = "chemin/vers/le/modèle/csmvc";
+        // Chemin de destination pour le projet copié
+        String destinationPath = projectDirectory;
+
+        Connection co = new Connexion().getConnection(databaseName);
         DatabaseMetaData metaData = co.getMetaData();
-            // Récupérer les noms de tables
-            ResultSet tables = metaData.getTables(null, null, "%", new String[]{"TABLE"});
+        ResultSet tables = metaData.getTables(null, null, "%", new String[]{"TABLE"});
+
+        try {
+            ProjectTemplateCopier.copyProjectTemplate(templatePath, destinationPath);
             while (tables.next()) {
                 String tableName = tables.getString("TABLE_NAME");
-                generateClass(co,tableName,setScanner);
-                generateClassCsharp(co,tableName,setCScanner,userDirectory);
-            }
-            scanner.close();
-            tables.close();
-            co.close();
+                generateProjectComponents(co, tableName, projectDirectory);
+            }            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        scanner.close();
+        tables.close();
+        co.close();
     }
-    
-    
-    
-    
+
+    private static void generateProjectComponents(Connection co, String tableName, String projectDirectory) throws Exception {
+        GenerateModelCsharp.generateClassCsharp(co, tableName, projectDirectory);
+        GenerateControllerCsharp.generateControllerCsharp(tableName, projectDirectory);
+        GenerateViewCsharp.generateViewCsharp(tableName, projectDirectory);
+    }
 }
