@@ -8,6 +8,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
@@ -19,12 +20,15 @@ import java.sql.SQLException;
  */
 public class GenerateModelCsharp {
     public static void generateClassCsharp(Connection co, String tableName, String projectDirectory) throws Exception {
+        // Extraire le nom du projet
+        String projectName = Paths.get(projectDirectory).getFileName().toString();
+
         DatabaseMetaData metaData = co.getMetaData();
         ResultSet columns = metaData.getColumns(null, null, tableName, "%");
 
         StringBuilder classContent = new StringBuilder();
         classContent.append("using System;\n\n");
-        classContent.append("namespace ").append(projectDirectory).append(".Models\n");
+        classContent.append("namespace ").append(projectName).append(".Models\n");
         classContent.append("{\n");
         classContent.append("    public class ").append(Fonction_Sup.tableNameToClassName(tableName)).append("\n");
         classContent.append("    {\n");

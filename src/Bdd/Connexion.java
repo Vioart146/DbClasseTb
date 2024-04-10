@@ -15,7 +15,7 @@ public class Connexion {
     public Connection getConnection(String databaseName) throws SQLException {
         String url = "jdbc:postgresql://localhost:5432/" + databaseName;
         String user = "postgres"; // Remplacez par votre nom d'utilisateur si nécessaire
-        String password = "IliveT51"; // Remplacez par votre mot de passe si nécessaire
+        String password = ""; // Remplacez par votre mot de passe si nécessaire
 
         try {
             Class.forName("org.postgresql.Driver");
