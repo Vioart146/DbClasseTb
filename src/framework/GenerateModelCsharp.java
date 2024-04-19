@@ -20,7 +20,7 @@ import java.sql.SQLException;
  */
 public class GenerateModelCsharp {
     public static void generateClassCsharp(Connection co, String tableName, String projectDirectory) throws Exception {
-        // Extraire le nom du projet
+        // Maka ny nom an le projet
         String projectName = Paths.get(projectDirectory).getFileName().toString();
 
         DatabaseMetaData metaData = co.getMetaData();

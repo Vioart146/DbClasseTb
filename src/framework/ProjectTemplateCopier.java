@@ -14,9 +14,9 @@ public class ProjectTemplateCopier {
     /**
      * Maka an le model
      *
-     * @param sourcePath      Le chemin du modèle de projet source.
-     * @param destinationPath Le chemin de destination où le modèle doit être copié.
-     * @throws IOException Si une erreur se produit lors de la copie.
+     * @param sourcePath      le chemin makany am le modele an le projet
+     * @param destinationPath destination
+     * @throws IOException
     */
     public static void copyProjectTemplate(String sourcePath, String destinationPath) throws IOException {
         Path sourceDir = Paths.get(sourcePath);
@@ -27,7 +27,7 @@ public class ProjectTemplateCopier {
             Files.createDirectories(destinationDir);
         }
 
-        // Copie tous les fichiers et répertoires du modèle de projet dans le répertoire de destination
+        // Copie an le modele de projet
         Files.walk(sourceDir)
                 .forEach(source -> copy(source, destinationDir.resolve(sourceDir.relativize(source))));
     }
@@ -35,8 +35,8 @@ public class ProjectTemplateCopier {
     /**
      * Rehefa mi- copier fichier na repetoire
      *
-     * @param source Le chemin source du fichier ou du répertoire.
-     * @param dest   Le chemin de destination.
+     * @param source chemin source du fichier ou du répertoire.
+     * @param dest   chemin de destination.
      */
     private static void copy(Path source, Path dest) {
         try {

@@ -24,11 +24,11 @@ public class Framework {
         System.out.print("Le nom de la base de données : ");
         String databaseName = scanner.nextLine();
 
-        // Chemin du modèle de projet source
+        // Chemin an le modèle de projet _ source
         String currentDirectory = System.getProperty("user.dir");
         String templatePath = currentDirectory + "/template/csmvc";
 //        String sourcePath = "chemin/vers/le/modèle/csmvc";
-        // Chemin de destination pour le projet copié
+        // Path an le directory hametrahana an le projet
         String destinationPath = projectDirectory;
 
         Connection co = new Connexion().getConnection(databaseName);

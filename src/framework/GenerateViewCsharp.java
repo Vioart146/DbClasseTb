@@ -16,7 +16,7 @@ public class GenerateViewCsharp {
     public static void generateViewCsharp(String tableName, String projectDirectory) throws IOException {
         StringBuilder viewContent = new StringBuilder();
         viewContent.append("@{\n");
-        viewContent.append("    ViewData[\"Title\"] = \"Database Structure\";\n");
+        viewContent.append("    ViewData[\"Title\"] = \"Home page\";\n");
         viewContent.append("}\n");
         viewContent.append("<h1>Database Structure</h1>\n");
         viewContent.append("<p>List of tables and their columns</p>\n");
@@ -40,7 +40,7 @@ public class GenerateViewCsharp {
             viewDir.mkdirs();
         }
 
-        String viewFilePath = viewDirectory + "/DatabaseStructure.cshtml";
+        String viewFilePath = viewDirectory + "/Index.cshtml";
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(viewFilePath))) {
             writer.write(viewContent.toString());
         } catch (IOException e) {

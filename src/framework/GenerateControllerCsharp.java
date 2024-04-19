@@ -15,7 +15,7 @@ import java.nio.file.Paths;
  */
 public class GenerateControllerCsharp {
     public static void generateControllerCsharp(String tableName, String projectDirectory) throws IOException {
-        // Extraire le nom du projet
+        // Maka ny nom an le projet
         String projectName = Paths.get(projectDirectory).getFileName().toString();
         StringBuilder classContent = new StringBuilder();
         classContent.append("using System;\n");
