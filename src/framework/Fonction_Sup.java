@@ -13,7 +13,7 @@ public class Fonction_Sup {
     public Fonction_Sup() {
     }
 
-    // Convertir le nom de la table en un nom de classe Java (ex: "ma_table" -> "MaTable")
+    // Mamadika nom an le table -> nom an le class (ex: "ma_table" -> "MaTable")
     static String tableNameToClassName(String tableName) {
         String[] parts = tableName.split("_");
         StringBuilder className = new StringBuilder();
@@ -36,7 +36,6 @@ public class Fonction_Sup {
                 return "double";
             case "float":
                 return "float";
-            // Ajoutez d'autres conversions au besoin
             default:
                 return "Object";
         }
@@ -56,7 +55,7 @@ public class Fonction_Sup {
         }
     }
 
-    // Mettre en majuscule la première lettre d'une chaîne
+    // Atao majuscule ny première lettre @ chaîne
     static String capitalize(String str) {
         return str.substring(0, 1).toUpperCase() + str.substring(1);
     }
