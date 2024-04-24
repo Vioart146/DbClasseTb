@@ -3,9 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/STUDIES/ITU/L3/S6/INF313_FRAMEWORK/COURS/A_FAIRE/Framework_generate/src/framework/Framework.java</file>
-            <file>file:/E:/STUDIES/ITU/L3/S6/INF313_FRAMEWORK/COURS/A_FAIRE/Framework_generate/src/framework/ProjectTemplateCopier.java</file>
-            <file>file:/E:/STUDIES/ITU/L3/S6/INF313_FRAMEWORK/COURS/A_FAIRE/Framework_generate/src/framework/GenerateViewCsharp.java</file>
+            <file>file:/E:/STUDIES/ITU/L3/S6/INF313_FRAMEWORK/COURS/A_FAIRE/Framework_affichage/src/java/framework/ProjectTemplateCopier.java</file>
+            <file>file:/E:/STUDIES/ITU/L3/S6/INF313_FRAMEWORK/COURS/A_FAIRE/Framework_affichage/src/java/framework/FrameworkMain.java</file>
+            <file>file:/E:/STUDIES/ITU/L3/S6/INF313_FRAMEWORK/COURS/A_FAIRE/Framework_affichage/src/java/controller/Controller_Csharp.java</file>
         </group>
     </open-files>
 </project-private>
